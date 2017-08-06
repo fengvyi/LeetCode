@@ -3,4 +3,4 @@ My C++ solutions for [LeetCode](https://leetcode.com/problemset/algorithms/) que
 
 |  #  |      Title      |     Solution    |    Difficulty   | Tag  |        Discuss            |
 |-----|---------------- | --------------- | --------------- | -----|-------------------------- |
-| 1   |      2          | 3               |  4              |  5   |    6                      |
+| [599](https://leetcode.com/problems/minimum-index-sum-of-two-lists/description/)   |      Minimum Index Sum of Two Lists          | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/599.%20Minimum%20Index%20Sum%20of%20Two%20Lists.cpp)               |  Easy              |  Hash Table   |    [discuss](https://discuss.leetcode.com/topic/92782/c-9-lines-hash-table-easy-to-understand)                      |
