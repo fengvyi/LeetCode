@@ -1,5 +1,5 @@
 # LeetCode ![solution](https://img.shields.io/badge/solution-accepted-green.svg) ![language](https://img.shields.io/badge/language-C%2B%2B-orange.svg) ![progress](https://img.shields.io/badge/progress-301%20%2F%20581-blue.svg)
-My C++ solutions for LeetCode questions. Feel free to visit [my LeetCode discuss profile](https://discuss.leetcode.com/user/zefengsong) for latest posts.
+My C++ solutions for [LeetCode](https://leetcode.com/problemset/algorithms/) questions. Feel free to visit [my LeetCode discuss profile](https://discuss.leetcode.com/user/zefengsong) for latest posts.
 
 |  #  |      Title      |     Solution    |    Difficulty   | Tag  |        Discuss            |
 |-----|---------------- | --------------- | --------------- | -----|-------------------------- |
