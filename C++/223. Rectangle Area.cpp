@@ -4,7 +4,7 @@ public:
 		int areaA = (C - A) * (D - B);
 		int areaB = (G - E) * (H - F);
 		if (C < E || A > G || B > H || D < F) return areaA + areaB;
-		// Botton left(I, J), Top right(K, L).
+		// Bottom left(I, J), Top right(K, L).
 		int I = max(A, E);
 		int J = max(B, F);
 		int K = min(C, G);
