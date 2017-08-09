@@ -62,8 +62,8 @@ public:
  * Run time : 6 ms
  */
 class Solution {
-	public:
-		int strStr(string haystack, string needle) {
-			return haystack.find(needle);
-		}
+public:
+	int strStr(string haystack, string needle) {
+		return haystack.find(needle);
+	}
 };
