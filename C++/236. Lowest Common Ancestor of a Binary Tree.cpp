@@ -26,7 +26,7 @@ public:
 	}
 };
 
-// Solution 2. O(logn)
+// Solution 2. T(n) = 2T(n/2), Time complexity: O(n)
 class Solution {
 public:
 	TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
