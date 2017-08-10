@@ -11,7 +11,7 @@
 class Solution {
 public:
 	TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-		if (root == p || root == q) return root;
+		if (!root || root == p || root == q) return root;
 		bool foundP = found(root->left, p);
 		bool foundQ = found(root->right, q);
 		if (foundP && foundQ || !foundP && !foundQ) return root;
