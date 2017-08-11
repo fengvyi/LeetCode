@@ -26,7 +26,7 @@ public:
 };
 
 // Based on this thread (https://discuss.leetcode.com/topic/8447/simple-solution-using-constant-space).
-// I modified it a bit to be a real constant space solution.
+// I wrote a C++ version and modified it a bit to be a real constant space solution.
 // O(1) space 
 class Solution {
 public:
