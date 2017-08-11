@@ -1,4 +1,4 @@
-// Detailed explanation with hand- draw graph can be found in discuss.
+// Detailed explanation with hand-draw graph can be found in discuss.
 // In-place.
 class Solution {
 public:
