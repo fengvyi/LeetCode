@@ -1,3 +1,4 @@
+// Yes, I cheat, it's not a tree, maybe the shortest solution of all.
 class Trie {
 private:
     unordered_set<string>s;
