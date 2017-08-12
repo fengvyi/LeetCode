@@ -1,5 +1,5 @@
 // Solution 1
-// Brute force. 
+// Brute force
 // Runime: 462 ms
 
 class Solution {
