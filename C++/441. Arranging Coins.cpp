@@ -7,7 +7,7 @@ public:
     }
 };
 
-// Math
+// Math solution from this thread https://discuss.leetcode.com/topic/65655/c-1-line-code
 class Solution {
 public:
     int arrangeCoins(int n) {
