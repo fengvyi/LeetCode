@@ -47,7 +47,7 @@ public:
             if(count2 == 0 && x != candidate1) candidate2 = x;
             if(x == candidate1) count1++;
             if(x == candidate2) count2++;
-            if(x != candidate1 && x!= candidate2) count1--, count2--;
+            if(x != candidate1 && x != candidate2) count1--, count2--;
         }
         int check1(0), check2(0);
         for(auto x: nums){
