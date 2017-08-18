@@ -10,7 +10,7 @@ public:
      */
     int read(char *buf, int n) {
         int sum = 0;
-        for(int i = 0; i < n; i+=4){
+        for(int i = 0; i < n; i += 4){
             sum += read4(buf);
             buf += 4;
         }
