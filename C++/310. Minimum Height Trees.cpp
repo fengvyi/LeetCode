@@ -44,21 +44,17 @@ public:
 };
 
 // Solution 2.
-/*
-After reviewing the BF solution, I realized that the Minimum Height Node is exactly the mid point of the longest path in the graph. 
-(Or 2 nodes if length is even.) 
-
-So, idea is that, we use 3 passes in total to found the longest path in the graph:
-1. First pass, starting from any node, go as deep as we can until reach the leaf node `a`.
-2. Second pass, starting from node `a`, go as deep as we can until reach the leaf node `b`.
-3. The path between node `a` and `b` is the longest path of the graph, using DFS to find path `a` to `b`.
-
-Then we simply return the mid node(odd) / nodes(even) of the longest path.
-
-Time Complexity: O(n).
-
-Here is the code, 35ms beats 99.17%.
-*/
+/**
+ * After reviewing the BF solution, I realized that the Minimum Height Node is exactly the mid point of the longest path in the graph. 
+ * (Or 2 nodes if length is even.) 
+ * So, idea is that, we use 3 passes in total to found the longest path in the graph:
+ * 1. First pass, starting from any node, go as deep as we can until reach the leaf node `a`.
+ * 2. Second pass, starting from node `a`, go as deep as we can until reach the leaf node `b`.
+ * 3. The path between node `a` and `b` is the longest path of the graph, using DFS to find path `a` to `b`.
+ * Then we simply return the mid node(odd) / nodes(even) of the longest path.
+ * Time Complexity: O(n).
+ * Here is the code, 35ms beats 99.17%.
+ */
 class Solution {
 public:
     vector<int> findMinHeightTrees(int n, vector<pair<int, int>>& edges) {
