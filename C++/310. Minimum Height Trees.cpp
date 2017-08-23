@@ -1,5 +1,4 @@
 /* From BF 1880ms to O(n) 35ms beats 99% */
-
 // Solution 1. Brute Force, find the min height of starting from `root(i) = 0, 1, 2, ... n - 1` using BFS. 
 // Easy to understand but will obviously costs a lot of time.
 class Solution {
@@ -46,9 +45,10 @@ public:
 
 // Solution 2.
 /*
-After reviewing the BF solution, I realized that the **Minimum Height** Node is exactly the mid point of the **longest path** in the graph. (Or 2 nodes if length is even.) 
+After reviewing the BF solution, I realized that the Minimum Height Node is exactly the mid point of the longest path in the graph. 
+(Or 2 nodes if length is even.) 
 
-So, idea is that, we use **3 passes** in total to found the longest path in the graph:
+So, idea is that, we use 3 passes in total to found the longest path in the graph:
 1. First pass, starting from any node, go as deep as we can until reach the leaf node `a`.
 2. Second pass, starting from node `a`, go as deep as we can until reach the leaf node `b`.
 3. The path between node `a` and `b` is the longest path of the graph, using DFS to find path `a` to `b`.
