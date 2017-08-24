@@ -4,6 +4,7 @@ My C++ solutions of [LeetCode Online Judge](https://leetcode.com/problemset/algo
 ## Table
 |  #  |      Title      |     Solution    |    Difficulty   | Tag  |        Discuss            |
 |-----|---------------- | --------------- | --------------- | -----|-------------------------- |
+|  1  | [Two Sum](https://leetcode.com/problems/two-sum/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/001.%20Two%20Sum.cpp) | Easy | Array / Hash Table | [discuss](https://discuss.leetcode.com/topic/100792/5-lines-c) |
 |  5  | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/005.%20Longest%20Palindromic%20Substring.cpp) | Medium | String | [discuss](https://discuss.leetcode.com/topic/77099/share-my-ac-c-brute-force-solution-easy-to-understand) |
 |  8  | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/008.%20String%20to%20Integer%20(atoi).cpp) | Medium | String | [discuss](https://discuss.leetcode.com/topic/77861/straight-forward-c-12ms-solution-updated) |
 | 12  | [Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C++/012.%20Integer%20to%20Roman.cpp) | Medium | String | [discuss](https://discuss.leetcode.com/topic/85649/c-the-real-step-by-step-solution) |
