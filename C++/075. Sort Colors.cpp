@@ -1,7 +1,7 @@
 /**
  * 1. Put '0's to the low position.
  * 2. Put '2's to the high position.
- * 3. Jump '1's as it is.
+ * 3. Jump '1's.
  */
 class Solution {
 public:
