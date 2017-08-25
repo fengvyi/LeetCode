@@ -9,8 +9,7 @@ public:
          * dp[i-1] + dp[i-2]                11, 16     - valid ending
          * dp[i-1]                          32, 56     - large ending, decrease i by 1
          */
-        if(s.size() == 0) return 0;
-        if(s[0] == '0') return 0;
+        if(s.size() == 0 || s[0] == '0') return 0;
         vector<int>dp(s.size());
         dp[0] = 1;
         for(int i = 1; i < s.size(); i++){
