@@ -6,6 +6,21 @@
  *     UndirectedGraphNode(int x) : label(x) {};
  * };
  */
+// Recursion
+class Solution {
+private:
+    unordered_map<int, UndirectedGraphNode*>m;
+public:
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        if(!node) return NULL;
+        if(m.count(node->label) == 0){
+            m[node->label] = new UndirectedGraphNode(node->label);
+            for(auto x: node->neighbors) m[node->label]->neighbors.push_back(cloneGraph(x));
+        }
+        return m[node->label];
+    }
+};
+// DFS
 class Solution {
 private:
     unordered_map<int, UndirectedGraphNode*>created;
