@@ -1,7 +1,7 @@
-/** Solution 1.
-  * Use one array to record the last bought stock with min price at day `i`,  
-  * use another array to record the max profit at day `i`.
-  */
+/**Solution 1.
+ * Use one array to record the last bought stock with min price at day `i`,  
+ * use another array to record the max profit at day `i`.
+ */
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
