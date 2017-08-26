@@ -1,4 +1,4 @@
-// SOlution 1. BFS
+// Solution 1. BFS
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
