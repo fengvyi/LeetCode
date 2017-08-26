@@ -18,7 +18,7 @@ public:
     }
 };
 
-/** Solution 2.
+/**Solution 2.
  * But you may noticed that we only concern the relationship between day `i` and day `i - 1`, 
  * therefore, we can simply use two integers to replace the two arrays, reduced space complexity to O(1).
  */
