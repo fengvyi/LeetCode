@@ -3,7 +3,6 @@ private:
     unordered_map<int, int>m;
 public:
     int combinationSum4(vector<int>& nums, int target) {
-        if(target < 0) return 0;
         if(target == 0) return 1;
         if(m.count(target) > 0) return m[target];
         int sum = 0;
