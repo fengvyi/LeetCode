@@ -34,6 +34,24 @@ struct TrieNode{
 };
 
 class WordDictionary {
+public:
+    WordDictionary() {
+        root = new TrieNode();
+    }
+    
+    void addWord(string word) {
+        TrieNode* node = root;
+        for(auto c: word){
+            if(!node->next[c - 'a']) node->next[c - 'a'] = new TrieNode();
+            node = node->next[c - 'a'];
+        }
+        node->isKey = true;
+    }
+    
+    bool search(string word) {
+        return helper(word, root);
+    }
+
 private:
     TrieNode* root;
     
@@ -55,23 +73,5 @@ private:
             }
         }
         return node->isKey;
-    }
-
-public:
-    WordDictionary() {
-        root = new TrieNode();
-    }
-    
-    void addWord(string word) {
-        TrieNode* node = root;
-        for(auto c: word){
-            if(!node->next[c - 'a']) node->next[c - 'a'] = new TrieNode();
-            node = node->next[c - 'a'];
-        }
-        node->isKey = true;
-    }
-    
-    bool search(string word) {
-        return helper(word, root);
     }
 };
