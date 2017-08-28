@@ -1,5 +1,17 @@
 // Solution 1. Hash Table, 62ms, 100%.
 class WordDictionary {
+public:
+    WordDictionary() {}
+    
+    void addWord(string word) {
+        words[word.size()].push_back(word);
+    }
+    
+    bool search(string word) {
+        for(auto s: words[word.size()]) if(isEqual(s, word)) return true;
+        return false;
+    }
+    
 private:
     unordered_map<int, vector<string>>words;
     
@@ -9,19 +21,6 @@ private:
             if(a[i] != b[i]) return false;
         }
         return true;
-    }
-
-public:
-    WordDictionary() {}
-    
-    void addWord(string word) {
-        words[word.size()].push_back(word);
-    }
-    
-    bool search(string word) {
-        for(auto s: words[word.size()])
-            if(isEqual(s, word)) return true;
-        return false;
     }
 };
 
