@@ -8,8 +8,7 @@ public:
 
     // Decodes a shortened URL to its original URL.
     string decode(string shortUrl) {
-        int i = stoi(shortUrl);
-        return v[i];
+        return v[stoi(shortUrl)];
     }
     
 private:
