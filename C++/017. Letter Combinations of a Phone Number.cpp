@@ -29,3 +29,28 @@ public:
         return;
     } 
 };
+
+// Update
+class Solution {
+public:
+    vector<string> letterCombinations(string s) {
+        vector<string>res;
+        if(s.empty()) return res;
+        vector<string>v({"", "", "abc", "def", "ghi","jkl","mno","pqrs", "tuv", "wxyz"});
+        DFS(s, res, 0, "", v);
+        return res;
+    }
+    
+private:
+    void DFS(string s, vector<string>& res, int pos, string path, vector<string>& v){
+        if(pos == s.size()){
+            res.push_back(path);
+            return;
+        }
+        for(auto c: v[s[pos] - '0']){
+            path.push_back(c);
+            DFS(s, res, pos + 1, path, v);
+            path.pop_back();
+        }
+    }
+};
