@@ -13,8 +13,8 @@ public:
             return;
         }
         for(int i = pos; i < nums.size(); i++){
-            path.push_back(nums[pos]);
-            DFS(res, nums, pos + 1, target, count + 1, sum + nums[pos], path);
+            path.push_back(nums[i]);
+            DFS(res, nums, pos + 1, target, count + 1, sum + nums[i], path);
             path.pop_back();
         }
     }
