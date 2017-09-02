@@ -24,7 +24,7 @@ public:
     
     bool isNeighbor(string& a, string& b){
         int diff = 0;
-        for(int i = 0; i < a.size(); i++) if(a[i] != b[i]) diff++;
+        for(int i = 0; i < a.size(); i++) if(a[i] != b[i] && ++diff > 1) return false;
         return diff == 1;
     }
 };
