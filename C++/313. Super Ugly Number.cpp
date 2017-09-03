@@ -17,7 +17,6 @@ public:
 // Solution 2.
 // Improve from 2 inner loops to one loop, idea from this post: 
 // https://discuss.leetcode.com/topic/34841/java-three-methods-23ms-36-ms-58ms-with-heap-performance-explained
-```
 class Solution {
 public:
     int nthSuperUglyNumber(int n, vector<int>& primes) {
