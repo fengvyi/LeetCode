@@ -13,7 +13,7 @@ public:
     }
 };
 
-// Trade-off space for time, beats 96.63%.
+// Trade-off space for time, beats 97.16%.
 class Solution {
 public:
     int nthSuperUglyNumber(int n, vector<int>& primes) {
