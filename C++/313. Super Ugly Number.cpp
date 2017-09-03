@@ -7,7 +7,7 @@ public:
         for(int i = 1; i < n; i++){
             dp[i] = INT_MAX;
             for(int j = 0; j < p.size(); j++) dp[i] = min(dp[i], dp[p[j]] * primes[j]);
-            for(int k = 0; k < p.size(); k++) if(dp[p[k]] * primes[k] == dp[i]) p[k]++;
+            for(int j = 0; j < p.size(); j++) if(dp[p[j]] * primes[j] == dp[i]) p[j]++;
         }
         return dp[n - 1];
     }
