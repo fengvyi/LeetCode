@@ -41,6 +41,7 @@ public:
 // Solution 3.
 // Also, I wrote the last heap version from the same post, but I think its time complexity is O(nklogk) rather than O(nlogk), 
 // which is actually slower than above solution.
+// Time: O(nklogk), 65ms. 
 struct triple{
     int val;
     int prime;
