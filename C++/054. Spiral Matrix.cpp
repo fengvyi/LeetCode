@@ -47,3 +47,27 @@ public:
         DFS(matrix, r + 1, c + 1, maxR - 1, maxC - 1, res);
     }
 };
+
+// Solution 3.
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int>res;
+        if(matrix.size() == 0) return res;
+        DFS(matrix, 0, matrix.size() - 1, 0, matrix[0].size() - 1, res);
+        return res;
+    }
+    
+    void DFS(vector<vector<int>>& matrix, int minRow, int maxRow, int minCol, int maxCol, vector<int>& res){
+        if(minRow > maxRow || minCol > maxCol) return;
+        for(int i = minCol; i <= maxCol; i++) res.push_back(matrix[minRow][i]);
+        minRow++;
+        for(int i = minRow; i <= maxRow; i++) res.push_back(matrix[i][maxCol]);
+        maxCol--;
+        for(int i = maxCol; i >= minCol && minRow <= maxRow; i--) res.push_back(matrix[maxRow][i]);
+        maxRow--;
+        for(int i = maxRow; i >= minRow && minCol <= maxCol; i--) res.push_back(matrix[i][minCol]);
+        minCol++;
+        DFS(matrix, minRow, maxRow, minCol, maxCol, res);
+    }
+};
