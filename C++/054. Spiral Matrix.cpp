@@ -1,0 +1,49 @@
+// Solution 1.
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int>res;
+        if(matrix.size() == 0) return res;
+        pair<int,int>d(0, 1);
+        vector<vector<int>>visited(matrix.size(), vector<int>(matrix[0].size(), 0));
+        DFS(matrix, 0, 0, d, res, visited);
+        return res;
+    }
+    
+    void DFS(vector<vector<int>>& matrix, int r, int c, pair<int,int>& d, vector<int>& res, vector<vector<int>>& visited){
+        res.push_back(matrix[r][c]);
+        if(res.size() == matrix.size() * matrix[0].size()) return;
+        visited[r][c] = 1;
+        int nextRow = r + d.first;
+        int nextCol = c + d.second;
+        if(nextRow == matrix.size() || nextCol == matrix[0].size() || nextCol < 0 || visited[nextRow][nextCol]) 
+            d = nextDirection(d);
+        DFS(matrix, r + d.first, c + d.second, d, res, visited);
+    }
+    
+    //directions: right -> down -> left -> up;
+    pair<int,int> nextDirection(pair<int,int>& d){
+        pair<int, int>right(0, 1), down(1, 0), left(0, -1), up(-1, 0);
+        return (d == right) ? down : (d == down) ? left : (d == left) ? up : right;
+    }
+};
+
+// Solution 2.
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int>res;
+        if(matrix.empty()) return res;
+        DFS(matrix, 0, 0, matrix.size(), matrix[0].size(), res);
+        return res;
+    }
+    
+    void DFS(vector<vector<int>>& matrix, int r, int c, int maxR, int maxC, vector<int>& res){
+        if(r >= maxR || c >= maxC) return;
+        for(int i = c; i < maxC; i++) res.push_back(matrix[r][i]);
+        for(int i = r + 1; i < maxR; i++) res.push_back(matrix[i][maxC - 1]);
+        for(int i = maxC - 2; i > c && r != maxR - 1; i--) res.push_back(matrix[maxR - 1][i]);
+        for(int i = maxR - 1; i > r && c != maxC - 1; i--) res.push_back(matrix[i][c]);
+        DFS(matrix, r + 1, c + 1, maxR - 1, maxC - 1, res);
+    }
+};
