@@ -53,11 +53,10 @@ class Solution {
 public:
     int nthSuperUglyNumber(int n, vector<int>& primes) {
         vector<int>dp(n);
+        dp[0] = 1;
         auto cmp = [](triple* t1, triple* t2){ return t1->val > t2->val; };
         priority_queue<triple*, vector<triple*>, decltype(cmp)>pq(cmp);
-        for(int i = 0; i < primes.size(); i++) 
-            pq.push(new triple(primes[i], primes[i], 1));
-        dp[0] = 1;
+        for(int i = 0; i < primes.size(); i++) pq.push(new triple(primes[i], primes[i], 1));
         for(int i = 1; i < n; i++){
             dp[i] = pq.top()->val;
             while(pq.top()->val == dp[i]){
