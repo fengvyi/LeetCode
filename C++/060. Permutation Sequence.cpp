@@ -38,8 +38,7 @@ public:
     }
 };
 
-// Solution 3. Math
-// C++ version of this thread: https://discuss.leetcode.com/topic/17348/explain-like-i-m-five-java-solution-in-o-n
+// Solution 3. Math, C++ version of this thread: https://discuss.leetcode.com/topic/17348/explain-like-i-m-five-java-solution-in-o-n
 // Run time: 3ms
 class Solution {
 public:
