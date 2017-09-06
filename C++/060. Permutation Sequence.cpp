@@ -1,3 +1,4 @@
+// Solution 1. Backtracking
 class Solution {
 public:
     string getPermutation(int n, int k) {
@@ -21,5 +22,16 @@ public:
             DFS(s, pos + 1, count, n, k, path, res);
             s[i] = path[pos];
         }
+    }
+};
+
+// Solution 2. Using STL
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        string s = "";
+        for(int i = 1; i <= n; i++) s.push_back(i + '0');
+        while(--k) next_permutation(s.begin(), s.end());
+        return s;
     }
 };
