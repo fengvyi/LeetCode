@@ -1,10 +1,10 @@
-/**Idea:
+/**
+ * Idea:
  * Get to stair n has two ways:
  * 1. Stand at stair n - 1, take step = 1 forward.
  * 2. Stand at stair n - 2, take step = 2 forward.
  * So the total ways to get to the stair(n) = total ways to stair(n - 1) + total ways to stair(n - 2).
  */
-
 class Solution {
 public:
     int climbStairs(int n) {
