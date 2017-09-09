@@ -56,3 +56,23 @@ public:
 		return head.next;
 	}
 };
+
+// Or just store the ListNode* in priority_queue.
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        auto comp = [](ListNode* a, ListNode* b){ return a->val > b->val;};
+        priority_queue<ListNode*, vector<ListNode*>, decltype(comp)>pq(comp);
+        for(auto x: lists)
+            while(x) pq.push(x), x = x->next;
+        ListNode head(0);
+        ListNode* cur = &head;
+        while(!pq.empty()){
+            cur->next = pq.top();
+            cur = cur->next;
+            pq.top()->next = NULL;
+            pq.pop();
+        }
+        return head.next;
+    }
+};
