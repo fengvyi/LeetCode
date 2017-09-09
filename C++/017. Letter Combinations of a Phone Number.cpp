@@ -33,23 +33,23 @@ public:
 // Update
 class Solution {
 public:
-    vector<string> letterCombinations(string s) {
+    vector<string> letterCombinations(string digits) {
         vector<string>res;
-        if(s.empty()) return res;
-        vector<string>v({"", "", "abc", "def", "ghi","jkl","mno","pqrs", "tuv", "wxyz"});
-        DFS(s, res, 0, "", v);
+        if(digits.empty()) return res;
+        vector<string>letter({"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"});
+        string path = "";
+        DFS(digits, 0, path, res, letter);
         return res;
     }
     
-private:
-    void DFS(string s, vector<string>& res, int pos, string path, vector<string>& v){
-        if(pos == s.size()){
+    void DFS(string digits, int pos, string& path, vector<string>& res, vector<string>& letter){
+        if(pos == digits.size()){
             res.push_back(path);
             return;
         }
-        for(auto c: v[s[pos] - '0']){
+        for(auto c: letter[digits[pos] - '0']){
             path.push_back(c);
-            DFS(s, res, pos + 1, path, v);
+            DFS(digits, pos + 1, path, res, letter);
             path.pop_back();
         }
     }
