@@ -7,11 +7,8 @@ public:
             if(p[1] != '*') return false;
             return isMatch(s, p.substr(2));
         }
-        if(p[1] == '*'){
-            if(p[0] != '.' && s[0] != p[0]) return isMatch(s, p.substr(2));
-            return isMatch(s.substr(1), p) || isMatch(s, p.substr(2));
-        }
-        if(p[0] != '.' && s[0] != p[0]) return false;
+        if(p[0] != '.' && s[0] != p[0]) return p[1] == '*' ? isMatch(s, p.substr(2)) : false;
+        if(p[1] == '*') return isMatch(s.substr(1), p) || isMatch(s, p.substr(2));
         return isMatch(s.substr(1), p.substr(1));
     }
 };
