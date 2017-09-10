@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+// Solution 1.
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
@@ -38,5 +39,33 @@ public:
         }
         left->next = pre;
         tmp->next = right;
+    }
+};
+
+// Solution 2.
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode dummy(0);
+        dummy.next = head;
+        ListNode* pre = &dummy, *cur(head), *next, *tmp, *p, *ppre, *ccur;
+        while(cur){
+            p = cur;
+            for(int i = 1; i < k && p; i++) p = p->next;
+            if(!p) break;
+            ppre = pre;
+            ccur = cur;
+            pre = p->next;
+            tmp = p->next;
+            while(cur != tmp){
+                next = cur->next;
+                cur->next = pre;
+                pre = cur;
+                cur = next;
+            }
+            ppre->next = pre;
+            pre = ccur;
+        }
+        return dummy.next;
     }
 };
