@@ -22,6 +22,23 @@ public:
 	}
 };
 
+// Or move isEqual() function inside.
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(needle.size() == 0) return 0;
+        for(int i = 0; i < haystack.size(); i++){
+            int j = 0;
+            for(;j < needle.size(); j++){
+                if(i + j == haystack.size()) return -1;
+                if(haystack[i + j] != needle[j]) break;
+            }
+            if(j == needle.size()) return i;
+        }
+        return -1;
+    }
+};
+
 /**
  * Solution 2. 
  * In BF solution, we compare two strings everytime we meet the charactor needle[0], 
