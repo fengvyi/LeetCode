@@ -6,42 +6,48 @@
  *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
  * };
  */
- // O(n) space
+ 
+// Solution 1. Works for any kind of tree, O(n) space. 
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
         if(!root) return;
         deque<TreeLinkNode*>cur;
-        deque<TreeLinkNode*>sub;
+        deque<TreeLinkNode*>next;
         cur.push_back(root);
         while(!cur.empty()){
             TreeLinkNode* node = cur.front();
             cur.pop_front();
             node->next = cur.empty() ? NULL : cur.front();
-            if(node->left) sub.push_back(node->left);
-            if(node->right) sub.push_back(node->right);
-            if(cur.empty()) swap(cur, sub);
+            if(node->left) next.push_back(node->left);
+            if(node->right) next.push_back(node->right);
+            if(cur.empty()) swap(cur, next);
         }
     }
 };
 
-// Based on this thread (https://discuss.leetcode.com/topic/8447/simple-solution-using-constant-space).
-// I wrote a C++ version and modified it a bit to be a real constant space solution.
-// O(1) space 
+// Solution 2. O(1) space.
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
-        TreeLinkNode tempChild(0);
-        TreeLinkNode* currentChild;
-        while(root){
-            tempChild.next = NULL;
-            currentChild = &tempChild;
-            while(root){
-                if(root->left) { currentChild->next = root->left; currentChild = currentChild->next;}
-                if(root->right) { currentChild->next = root->right; currentChild = currentChild->next;}
-                root = root->next;
+        TreeLinkNode head(0);
+        TreeLinkNode* pre = &head, *cur;
+        pre->next = root;
+        while(pre->next){
+            cur = pre->next;
+            while(cur){
+                if(cur->left){
+                    pre->next = cur->left;
+                    pre = pre->next;
+                }
+                if(cur->right){
+                    pre->next = cur->right;
+                    pre = pre->next;
+                }
+                cur = cur->next;
             }
-            root = tempChild.next;
+            pre->next = NULL;
+            pre = &head;
         }
     }
 };
