@@ -1,3 +1,4 @@
+// My solution.
 class Solution {
 public:
     int numDecodings(string s) {
@@ -22,5 +23,23 @@ public:
             else dp[i] = dp[i - 1];
         }
         return dp[s.size()-1];
+    }
+};
+
+// Solution from here: https://discuss.leetcode.com/topic/7025/a-concise-dp-solution
+class Solution {
+public:
+    int numDecodings(string s) {
+        if(s.empty() || s.front() == '0') return 0;
+        int p1 = 1, p2 = 1;
+        for(int i = 1; i < s.size(); i++){
+            if(s[i] == '0') p1 = 0;
+            if(s[i - 1] == '1' || s[i - 1] == '2' && s[i] < '7'){
+                p1 = p1 + p2;
+                p2 = p1 - p2;
+            }
+            else p2 = p1;
+        }
+        return p1;
     }
 };
