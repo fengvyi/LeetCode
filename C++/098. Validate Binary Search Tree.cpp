@@ -52,7 +52,7 @@ public:
     }
 };
 
-// Solution 4.In-order, iterative, O(n).
+// Solution 4. In-order, iterative, O(n).
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
