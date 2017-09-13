@@ -29,16 +29,16 @@ public:
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int>> res;
-        DFS(root, 1, res);
+        vector<vector<int>>res;
+        DFS(res, root, 0);
         return res;
     }
     
-    void DFS(TreeNode* root, int level, vector<vector<int>>& res){
+    void DFS(vector<vector<int>>& res, TreeNode* root, int level){
         if(!root) return;
-        if(level > res.size()) res.push_back(vector<int>(1, root->val));
-        else res[level - 1].push_back(root->val);
-        DFS(root->left, level + 1, res);
-        DFS(root->right, level + 1, res);
+        if(level == res.size()) res.push_back(vector<int>());
+        res[level].push_back(root->val);
+        DFS(res, root->left, level + 1);
+        DFS(res, root->right, level + 1);
     }
 };
