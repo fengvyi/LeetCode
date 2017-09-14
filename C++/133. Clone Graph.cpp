@@ -20,6 +20,35 @@ public:
         return m[node->label];
     }
 };
+
+// BFS
+class Solution {
+public:
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        if(!node) return NULL;
+        unordered_map<UndirectedGraphNode*, UndirectedGraphNode*>m;
+        UndirectedGraphNode* root = new UndirectedGraphNode(node->label);
+        m[node] = root;
+        deque<UndirectedGraphNode*>cur;
+        deque<UndirectedGraphNode*>next;
+        cur.push_back(node);
+        while(!cur.empty()){
+            UndirectedGraphNode* p = cur.front();
+            cur.pop_front();
+            for(auto x: p->neighbors){
+                if(m.count(x) == 0){
+                    UndirectedGraphNode* copy = new UndirectedGraphNode(x->label);
+                    m[x] = copy;
+                    next.push_back(x);
+                }
+                m[p]->neighbors.push_back(m[x]);
+            }
+            if(cur.empty()) swap(cur, next);
+        }
+        return root;
+    }
+};
+
 // DFS
 class Solution {
 private:
