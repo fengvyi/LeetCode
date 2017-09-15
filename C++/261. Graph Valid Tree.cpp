@@ -1,3 +1,4 @@
+// Solution 1. DFS
 class Solution {
 public:
     bool validTree(int n, vector<pair<int, int>>& edges) {
@@ -22,5 +23,24 @@ public:
                 if(circle) return true;
             }
         return false;
+    }
+};
+
+// Solution 2. Union Find
+class Solution {
+public:
+    bool validTree(int n, vector<pair<int, int>>& edges) {
+        if(edges.size() != n - 1) return false;
+        vector<int>root(n, 0);
+        for(int i = 0; i < n; i++) root[i] = i;
+        for(int i = 0; i < edges.size(); i++){
+            int x = edges[i].first;
+            int y = edges[i].second;
+            while(root[x] != x) x = root[x];
+            while(root[y] != y) y = root[y];
+            if(x == y) return false;
+            root[y] = x;
+        }
+        return true;
     }
 };
