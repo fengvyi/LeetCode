@@ -18,7 +18,6 @@ public:
         return res;
     }
     
-private:
     void DFS(TreeNode* root, vector<string>& res, string path){
         path += to_string(root->val);
         if(root->left || root->right) path += "->";
