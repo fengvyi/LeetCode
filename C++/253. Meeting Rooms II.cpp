@@ -7,6 +7,7 @@
  *     Interval(int s, int e) : start(s), end(e) {}
  * };
  */
+// Solution 1.
 class Solution {
 public:
     int minMeetingRooms(vector<Interval>& intervals) {
@@ -21,5 +22,17 @@ public:
             pq.push(intervals[i].end);
         }
         return room;
+    }
+};
+
+// Solution 2.
+class Solution {
+public:
+    int minMeetingRooms(vector<Interval>& intervals) {
+        map<int, int>m;
+        int room = 0, maxRoom = 0;
+        for(auto x: intervals) m[x.start]++, m[x.end]--;
+        for(auto x: m) room += x.second, maxRoom = max(maxRoom, room);
+        return maxRoom;
     }
 };
