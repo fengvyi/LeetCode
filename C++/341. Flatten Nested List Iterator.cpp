@@ -29,15 +29,15 @@ public:
 
     bool hasNext() {
         while(q.empty() && i < nestedList->size()){
-          if((*nestedList)[i].isInteger())
-            q.push_back((*nestedList)[i].getInteger());
-          else{
-            NestedIterator* it = new NestedIterator((*nestedList)[i].getList());
-            while(it->hasNext()) q.push_back(it->next());
-          }
-          i++;
+            if((*nestedList)[i].isInteger())
+                q.push_back((*nestedList)[i].getInteger());
+            else{
+                NestedIterator* it = new NestedIterator((*nestedList)[i].getList());
+                while(it->hasNext()) q.push_back(it->next());
+            }
+            i++;
         }
-      return !q.empty();
+        return !q.empty();
     }
 
 private:
