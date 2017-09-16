@@ -29,9 +29,8 @@ public:
 
     bool hasNext() {
         while(q.empty() && i < nestedList->size()){
-          if((*nestedList)[i].isInteger()){
+          if((*nestedList)[i].isInteger())
             q.push_back((*nestedList)[i].getInteger());
-          }
           else{
             NestedIterator* it = new NestedIterator((*nestedList)[i].getList());
             while(it->hasNext()) q.push_back(it->next());
@@ -42,11 +41,10 @@ public:
     }
 
 private:
-  vector<NestedInteger>* nestedList;
-  deque<int>q;
-  int i = 0;
+    vector<NestedInteger>* nestedList;
+    deque<int>q;
+    int i = 0;
 };
-
 
 /**
  * Your NestedIterator object will be instantiated and called as such:
