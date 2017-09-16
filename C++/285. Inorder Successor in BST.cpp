@@ -28,21 +28,16 @@ class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
         stack<TreeNode*>s;
-        bool found = false;
-        helper(root, p, s, found);
-        return found ? s.top() : NULL;
+        DFS(root, s);
+        while(s.top() != p) s.pop();
+        s.pop();
+        return s.empty() ? NULL : s.top();
     }
     
-    void helper(TreeNode* root, TreeNode* p, stack<TreeNode*>& s, bool& found){
+    void DFS(TreeNode* root, stack<TreeNode*>& s){
         if(!root) return;
-        helper(root->left, p, s, found);
-        if(!s.empty() && s.top() == p){
-            s.push(root);
-            found = true;
-            return;
-        }
-        if(found) return;
+        DFS(root->right, s);
         s.push(root);
-        helper(root->right, p, s, found);
+        DFS(root->left, s);
     }
 };
