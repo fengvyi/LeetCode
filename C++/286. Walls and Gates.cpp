@@ -5,8 +5,7 @@ public:
         vector<vector<int>>visited(rooms.size(), vector<int>(rooms[0].size()));
         for(int i = 0; i < rooms.size(); i++)
             for(int j = 0; j < rooms[0].size(); j++)
-                if(rooms[i][j] == 0)
-                    BFS(rooms, i, j, 0, visited);
+                if(rooms[i][j] == 0) BFS(rooms, i, j, 0, visited);
     }
     
     void BFS(vector<vector<int>>& rooms, int r, int c, int step, vector<vector<int>>& visited){
@@ -28,8 +27,7 @@ public:
         if(rooms.size() == 0 || rooms[0].size() == 0) return;
         for(int i = 0; i < rooms.size(); i++)
             for(int j = 0; j < rooms[0].size(); j++)
-                if(rooms[i][j] == 0)
-                    BFS(rooms, i, j, 0);
+                if(rooms[i][j] == 0) BFS(rooms, i, j, 0);
     }
     
     void BFS(vector<vector<int>>& rooms, int r, int c, int step){
