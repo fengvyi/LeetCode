@@ -10,9 +10,7 @@ public:
     }
     
     void BFS(vector<vector<int>>& rooms, int r, int c, int step, vector<vector<int>>& visited){
-        if(r < 0 || c < 0 || r >= rooms.size() || c >= rooms[0].size()) return;
-        if(visited[r][c]) return;
-        if(rooms[r][c] < step) return;
+        if(r < 0 || c < 0 || r >= rooms.size() || c >= rooms[0].size() || visited[r][c] || rooms[r][c] < step) return;
         if(rooms[r][c] != 0) rooms[r][c] = min(rooms[r][c], step);
         visited[r][c] = 1;
         BFS(rooms, r - 1, c, step + 1, visited);
