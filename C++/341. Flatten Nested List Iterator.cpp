@@ -18,34 +18,35 @@
 class NestedIterator {
 public:
     NestedIterator(vector<NestedInteger> &nestedList) {
-        this->nestedList = nestedList;
+        this->nestedList = &nestedList;
     }
 
     int next() {
-        int num = current.front();
-        current.pop_front();
-        return num;
+        int n = q.front();
+        q.pop_front();
+        return n;
     }
 
     bool hasNext() {
-        while(k != nestedList.size() && current.empty()){
-            if(nestedList[k].isInteger()) {
-                current.push_back(nestedList[k].getInteger());
-                k++;
-                break;
-            }
-            NestedIterator i(nestedList[k].getList());
-            while(i.hasNext()) current.push_back(i.next());
-            k++;
+        while(q.empty() && i < nestedList->size()){
+          if((*nestedList)[i].isInteger()){
+            q.push_back((*nestedList)[i].getInteger());
+          }
+          else{
+            NestedIterator* it = new NestedIterator((*nestedList)[i].getList());
+            while(it->hasNext()) q.push_back(it->next());
+          }
+          i++;
         }
-        return !current.empty();
+      return !q.empty();
     }
-    
+
 private:
-    vector<NestedInteger>nestedList; 
-    deque<int>current;
-    int k = 0;
+  vector<NestedInteger>* nestedList;
+  deque<int>q;
+  int i = 0;
 };
+
 
 /**
  * Your NestedIterator object will be instantiated and called as such:
