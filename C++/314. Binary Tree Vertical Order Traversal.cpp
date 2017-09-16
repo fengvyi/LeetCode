@@ -10,28 +10,21 @@
 class Solution {
 public:
     vector<vector<int>> verticalOrder(TreeNode* root) {
-        map<int, vector<int>>m;
         vector<vector<int>>res;
         if(!root) return res;
-
+        map<int, vector<int>>m;
         deque<pair<int, TreeNode*>>cur;
-        deque<pair<int, TreeNode*>>sub;
-        
-        int offset = 0;
-        
-        cur.push_back(make_pair(offset, root));
-        
+        deque<pair<int, TreeNode*>>next;
+        cur.push_back(make_pair(0, root));
         while(!cur.empty()){
-            pair<int, TreeNode*>* p = &cur.front();
+            auto p = cur.front();
             cur.pop_front();
-            m[p->first].push_back(p->second->val);
-            if(p->second->left) sub.push_back(make_pair(p->first - 1, p->second->left));
-            if(p->second->right) sub.push_back(make_pair(p->first + 1, p->second->right));
-            if(cur.empty()) swap(cur, sub);
+            m[p.first].push_back(p.second->val);
+            if(p.second->left) next.push_back(make_pair(p.first - 1, p.second->left));
+            if(p.second->right) next.push_back(make_pair(p.first + 1, p.second->right));
+            if(cur.empty()) swap(cur, next);
         }
-        
         for(auto x: m) res.push_back(x.second);
-        
         return res;
     }
 };
