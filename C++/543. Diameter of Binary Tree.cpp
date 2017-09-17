@@ -17,18 +17,17 @@ public:
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        DFS(root);
-        return maxPath;
+        int maxLen = 0;
+        DFS(root, maxLen);
+        return maxLen;
     }
 
 private:
-    int maxPath = 0;
-    
-    int DFS(TreeNode* root){
+    int DFS(TreeNode* root, int& maxLen){
         if(!root) return 0;
-        int left = DFS(root->left);
-        int right = DFS(root->right);
-        maxPath = max(maxPath, left + right);
-        return 1 + max(left, right);
+        int left = DFS(root->left, maxLen);
+        int right = DFS(root->right, maxLen);
+        maxLen = max(maxLen, left + right);
+        return max(left, right) + 1;
     }
 };
