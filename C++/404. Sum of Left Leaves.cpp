@@ -8,7 +8,7 @@
  * };
  */
 
-// Recursive.
+// Recursive
 class Solution {
 public:
     int sumOfLeftLeaves(TreeNode* root) {
