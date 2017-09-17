@@ -2,18 +2,18 @@
 class Solution {
 public:
     int findTargetSumWays(vector<int>& nums, int S) {
-        int ways = 0;
-        backtrack(nums, S, 0, 0, ways);
-        return ways;
+        int count = 0;
+        backtrack(nums, S, 0, 0, count);
+        return count;
     }
     
-    void backtrack(vector<int>& nums, int S, int sum, int pos, int& ways){
+    void backtrack(vector<int>& nums, int S, int sum, int pos, int& count){
         if(pos == nums.size()){
-            if(sum == S) ways++;
+            if(sum == S) count++;
             return;
         }
-        backtrack(nums, S, sum + nums[pos], pos + 1, ways);
-        backtrack(nums, S, sum - nums[pos], pos + 1, ways);
+        backtrack(nums, S, sum + nums[pos], pos + 1, count);
+        backtrack(nums, S, sum - nums[pos], pos + 1, count);
     }
 };
 
