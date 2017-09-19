@@ -13,22 +13,21 @@ public:
         vector<double>res;
         if(!root) return res;
         deque<TreeNode*>cur;
-        deque<TreeNode*>sub;
+        deque<TreeNode*>next;
         cur.push_back(root);
         double sum = 0;
-        int count = 0;
+        int n = 0;
         while(!cur.empty()){
-            TreeNode* node = cur.front();
+            TreeNode* p = cur.front();
             cur.pop_front();
-            if(node->left) sub.push_back(node->left);
-            if(node->right) sub.push_back(node->right);
-            sum += node->val;
-            count++;
+            sum += p->val;
+            n++;
+            if(p->left) next.push_back(p->left);
+            if(p->right) next.push_back(p->right);
             if(cur.empty()){
-                res.push_back(sum / count);
-                sum = 0;
-                count = 0;
-                swap(cur, sub);
+                res.push_back(sum / n);
+                swap(cur, next);
+                sum = n = 0;
             }
         }
         return res;
