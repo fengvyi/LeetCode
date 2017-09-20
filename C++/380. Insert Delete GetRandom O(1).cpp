@@ -1,4 +1,4 @@
-// 92ms
+// 92ms, O(n) getRandom()
 class RandomizedSet {
 public:
     /** Initialize your data structure here. */
@@ -37,7 +37,7 @@ private:
  * int param_3 = obj.getRandom();
  */
 
-// 48ms
+// 48ms, O(1)
 class RandomizedSet {
 public:
     /** Initialize your data structure here. */
