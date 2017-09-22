@@ -45,15 +45,15 @@ public:
 class Solution {
 public:
     int calculate(string s) {
+        s += '+';
         stack<int>stk;
         int tmp = 0;
         char op = '+';
         for(int i = 0; i < s.size(); i++){
             char c = s[i];
-            if(isdigit(c)){
-                tmp = tmp*10 + c - '0';
-            }
-            if(!isdigit(c) && c != ' ' || i == s.size() - 1){
+            if(c == ' ') continue;
+            if(isdigit(c)) tmp = tmp*10 + c - '0';
+            if(!isdigit(c)){
                 if(op == '+')
                     stk.push(tmp);
                 else if(op == '-')
