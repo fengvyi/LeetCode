@@ -33,9 +33,9 @@ public:
             ss >> num;
             if(op == '+' || op == '-'){
                 sum += temp;
-                temp = op == '+' ? num : -num;
+                temp = (op == '+') ? num : -num;
             }
-            else temp = op == '*' ? temp * num : temp / num;
+            else temp = (op == '*') ? temp * num : temp / num;
         }
         return sum;
     }
