@@ -6,7 +6,7 @@ public:
     }
 };
 
-// Three line.
+// Three lines.
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
