@@ -13,8 +13,8 @@ public:
     void moveZeroes(vector<int>& nums) {
         int i = 0, j = nums.size() - 1;
         while(i < j){
-            while(nums[i] != 0) i++;
-            while(nums[j] == 0) j--;
+            while(i < j && nums[i] != 0) i++;
+            while(i < j && nums[j] == 0) j--;
             swap(nums[i++], nums[j--]);
         }
     }
