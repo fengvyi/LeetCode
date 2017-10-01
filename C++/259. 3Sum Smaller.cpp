@@ -4,10 +4,8 @@ public:
         int count = 0;
         sort(nums.begin(), nums.end());
         for(int i = 0; i < nums.size(); i++)
-            for(int lo = i + 1, hi = nums.size() - 1; lo < hi; lo++){
+            for(int lo = i + 1, hi = nums.size() - 1; lo < hi; count += hi - lo++)
                 while(lo < hi && nums[i] + nums[lo] + nums[hi] >= target) hi--;
-                count += hi - lo;
-            }
         return count;
     }
 };
