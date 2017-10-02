@@ -29,10 +29,7 @@ public:
         }
         string res = "";
         for(int i = 0; i < t.size(); i++){
-            if(i + 1 < t.size() && t[i] == ')' && t[i + 1] == '('){
-                i++;
-                continue;
-            }
+            if(i + 1 < t.size() && t[i] == ')' && t[i + 1] == '(') i += 2;
             (t[i] == '(') ? res += "<b>" : (t[i] == ')') ? res += "</b>" : res += t[i];
         }
         return res;
