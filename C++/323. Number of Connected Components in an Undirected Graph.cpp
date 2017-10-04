@@ -46,8 +46,7 @@ public:
                 q.pop_front();
                 visited[node] = 1;
                 for(auto neigh: graph[node])
-                    if(!visited[neigh])
-                        q.push_back(neigh);
+                    if(!visited[neigh]) q.push_back(neigh);
             }
         }
         return label;
