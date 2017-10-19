@@ -23,3 +23,18 @@ public:
         return root;
     }
 };
+
+// O(n)
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        deque<TreeNode*>q;
+        for(auto x: nums){
+            TreeNode* p = new TreeNode(x);
+            while(!q.empty() && q.back()->val < x) p->left = q.back(), q.pop_back();
+            if(!q.empty() && q.back()->val > x) q.back()->right = p;
+            q.push_back(p);
+        }
+        return q.front();
+    }
+};
