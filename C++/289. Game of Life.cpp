@@ -1,10 +1,10 @@
 /*
  Transition: Marks
 
-`0 -> 0`: `0`
-`1 -> 1`: `1`
-`0 -> 1`: `-1`
-`1 -> 0`: `2`
+ 0 -> 0 : 0
+ 1 -> 1 : 1
+ 0 -> 1 : -1
+ 1 -> 0 : 2
 
 Then update the board according to their marks.
 */
