@@ -30,7 +30,7 @@ public:
     void DFS(vector<vector<int>>& grid, int r, int c, int R, int C, int m, int n, int& S, vector<vector<int>>& visited){
         if(r < 0 || c < 0 || R < 0 || C < 0 || r == m || R == m || c == n || C == n || visited[r][c]) return;
         if(!grid[r][c] && !grid[R][C] || grid[r][c] != grid[R][C]) return;
-        if(grid[r][c]) S++;
+        S++;
         visited[r][c] = 1;
         for(int i = 0; i < 4; i++) DFS(grid, r + d[i][0], c + d[i][1], R + d[i][0], C + d[i][1], m, n, S, visited);
     }
