@@ -1,3 +1,4 @@
+// Solution 1.
 class Solution {
 public:
     int numDistinctIslands(vector<vector<int>>& grid) {
@@ -36,5 +37,32 @@ public:
     }
 
 private:
+    vector<vector<int>>d = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+};
+
+// Solution 2. Using set.
+class Solution {
+public:
+    int numDistinctIslands(vector<vector<int>>& grid) {
+        int count = 0, m = grid.size(), n = grid[0].size();
+        for(int i = 0; i < m; i++)
+            for(int j = 0; j < n; j++)
+                if(grid[i][j] == 1){
+                    vector<vector<int>>island;
+                    DFS(grid, i, j, i, j, m, n, island);
+                    s.insert(island);
+                }
+        return s.size();
+    }
+    
+    void DFS(vector<vector<int>>& grid, int i, int j, int r, int c, int m, int n, vector<vector<int>>& island){
+        if(r < 0 || c < 0 || r == m || c == n || !grid[r][c] || grid[r][c] == 2) return;
+        island.push_back({r - i, c - j});
+        grid[r][c] = 2;
+        for(int k = 0; k < 4; k++) DFS(grid, i, j, r + d[k][0], c + d[k][1], m, n, island);
+    }
+    
+private:
+    set<vector<vector<int>>>s;
     vector<vector<int>>d = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 };
