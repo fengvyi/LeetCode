@@ -1,5 +1,4 @@
-**BFS**
-```
+// BFS
 class Solution {
 public:
     vector<int> largestValues(TreeNode* root) {
@@ -23,10 +22,8 @@ public:
         return res;
     }
 };
-```
-***
-**DFS**
-```
+
+// DFS
 class Solution {
 public:
     vector<int> largestValues(TreeNode* root) {
@@ -43,4 +40,3 @@ public:
         DFS(root->right, res, level + 1);
     }
 };
-```
