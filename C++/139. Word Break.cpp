@@ -12,10 +12,8 @@ public:
         if(dp.count(s)) return dp[s];
         if(s.empty()) return true;
         bool found = false;
-        for(int i = 0; i < s.size(); i++){
-            string str = s.substr(0, i + 1);
-            if(m.count(str)) found |= DFS(s.substr(i + 1));
-        }
+        for(int i = 1; i <= s.size() && !found; i++)
+            if(m.count(s.substr(0, i))) found |= DFS(s.substr(i));
         dp[s] = found;
         return found;
     }
