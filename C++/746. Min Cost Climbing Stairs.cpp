@@ -13,8 +13,8 @@ public:
     }
 };
 
-// If we take a look at the solution above, we can see the result `dp[i]` only depends on previous `2` steps(`dp[i - 1]` and `dp[i - 2]`).
-// So we can replace the `dp` array with `2` variables.
+// If we take a look at the solution above, we can see the result dp[i] only depends on previous 2 steps(dp[i - 1] and dp[i - 2]).
+// So we can replace the 'dp' array with 2 variables.
 // Here is the final solution:
 
 class Solution {
