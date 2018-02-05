@@ -19,7 +19,7 @@ public:
     }
 };
 
-// Solution 2.** Trie, 58 ms.
+// Solution 2. Trie, 58 ms.
 struct TrieNode{
     bool isKey;
     TrieNode* next[26];
