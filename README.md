@@ -415,5 +415,6 @@ My C++ solutions of [LeetCode Online Judge](https://leetcode.com/problemset/algo
 | 911 | [Online Election](https://leetcode.com/problems/online-election/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/911.%20Online%20Election.cpp) | Medium | Binary Search / Map ||
 | 914 | [X of a Kind in a Deck of Cards](https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/914.%20X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards.cpp) | Easy | Array / Math ||
 | 916 | [Word Subsets](https://leetcode.com/problems/word-subsets/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/916.%20Word%20Subsets.cpp) | Medium | String ||
+| 933 | [Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/933.%20Number%20of%20Recent%20Calls.cpp) | Easy | Queue ||
 | 935 | [Knight Dialer](https://leetcode.com/problems/knight-dialer/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/935.%20Knight%20Dialer.cpp) | Medium | Dynamic Programming | [discuss](https://leetcode.com/problems/knight-dialer/discuss/192515/Super-easy-to-understand-C++-DP-solution) |
 
