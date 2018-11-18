@@ -20,3 +20,37 @@ public:
         return b;
     }
 };
+
+class Solution {
+public:
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        vector<int>res;
+        int n = graph.size();
+        vector<int>dp(n);
+        vector<int>visited(n);
+        for (int i = 0; i < n; ++i) {
+            if (dfs(graph, i, visited, dp)) {
+                res.push_back(i);
+            }
+        }
+        return res;
+    }
+    
+    bool dfs(vector<vector<int>>& graph, int node, vector<int>& visited, vector<int>& dp) {
+        if (dp[node]) {
+            return dp[node] == 1 ? true : false;
+        }
+        if (visited[node]) {
+            return false;
+        }
+        
+        visited[node] = 1;
+        bool isValid = true;
+        for (int x : graph[node]) {
+            isValid &= dfs(graph, x, visited, dp);
+        }
+        visited[node] = 0;
+        dp[node] = isValid ? 1 : -1;
+        return isValid;
+    }
+};
