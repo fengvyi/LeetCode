@@ -31,7 +31,6 @@ public:
             return {};
         }
         vector<vector<int>>g(1001);
-        int root = edges[0][0];
         vector<int>visited(1001);
         for (auto& e: edges) {
             g[e[0]].push_back(e[1]);
