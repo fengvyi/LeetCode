@@ -31,3 +31,70 @@ private:
         if(d == 1 || d == 2) return {0, 3};
     }
 };
+
+
+class Solution {
+public:
+    int shortestDistance(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
+        int m = maze.size(), n = maze[0].size();
+        vector<vector<int>>visited(m, vector<int>(n, INT_MAX));
+        int minDis = -1;
+        dfs(maze, start[0], start[1], destination, visited, m, n, 0, minDis);
+        return minDis;
+    }
+    
+    void dfs(vector<vector<int>>& maze, int r, int c, vector<int>& destination, vector<vector<int>>& visited, int m, int n, 
+             int path, int& minDis) {
+        if (r == destination[0] && c == destination[1]) {
+            if (minDis == -1) {
+                minDis = path;
+            } else {
+                minDis = min(minDis, path);
+            }
+        }
+        if (path >= visited[r][c]) {
+            return;
+        }
+        visited[r][c] = path;
+        // left
+        int left = c;
+        int leftPath = path;
+        while (left - 1 >= 0 && maze[r][left - 1] == 0) {
+            --left;
+            ++leftPath;
+        }
+        if (left != c) {
+            dfs(maze, r, left, destination, visited, m, n, leftPath, minDis);
+        }
+        // right
+        int right = c;
+        int rightPath = path;
+        while (right + 1 < n && maze[r][right + 1] == 0) {
+            ++right;
+            ++rightPath;
+        }
+        if (right != c) {
+            dfs(maze, r, right, destination, visited, m, n, rightPath, minDis);
+        }
+        // up
+        int up = r;
+        int upPath = path;
+        while (up - 1 >= 0 && maze[up - 1][c] == 0) {
+            --up;
+            ++upPath;
+        }
+        if (up != r) {
+            dfs(maze, up, c, destination, visited, m, n, upPath, minDis);
+        }
+        // down
+        int down = r;
+        int downPath = path;
+        while (down + 1 < m && maze[down + 1][c] == 0) {
+            ++down;
+            ++downPath;
+        }
+        if (down != r) {
+            dfs(maze, down, c, destination, visited, m, n, downPath, minDis);
+        }
+    }
+};
