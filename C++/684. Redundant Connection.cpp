@@ -21,3 +21,40 @@ public:
         for(auto x: g[root]) DFS(g, id, x, tag);
     }
 };
+
+
+class Solution {
+public:
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        if (edges.empty()) {
+            return {};
+        }
+        vector<vector<int>>g(1001);
+        int root = edges[0][0];
+        vector<int>visited(1001);
+        for (auto& e: edges) {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+            
+            if (!dfs(g, e[0], e[1], visited)) {
+                return e;
+            }
+        }
+        return {};
+    }
+    
+    bool dfs(vector<vector<int>>& g, int node, int from, vector<int>& visited) {
+        if (visited[node]) {
+            return false;
+        }
+        visited[node] = 1;
+        bool res = true;
+        for (int& x: g[node]) {
+            if (x != from) {
+                res &= dfs(g, x, node, visited);
+            }
+        }
+        visited[node] = 0;
+        return res;
+    }
+};
