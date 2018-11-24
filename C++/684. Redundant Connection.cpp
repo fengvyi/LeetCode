@@ -1,3 +1,4 @@
+// Solution 1
 class Solution {
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
@@ -22,7 +23,7 @@ public:
     }
 };
 
-
+// Solution 2
 class Solution {
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
@@ -56,5 +57,32 @@ public:
         }
         visited[node] = 0;
         return res;
+    }
+};
+
+// Solution 3
+class Solution {
+public:
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        vector<int>root(1001);
+        
+        for (int i = 0; i < 1001; ++i) {
+            root[i] = i;
+        }
+        
+        for(auto& pair: edges) {
+            int a = pair[0];
+            int b = pair[1];
+
+            while (a != root[a]) a = root[a];
+            while (b != root[b]) b = root[b];
+            
+            if (a == b) {
+                return pair;
+            } else {
+                root[a] = b;
+            }
+        }
+        return {};
     }
 };
