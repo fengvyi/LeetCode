@@ -39,3 +39,22 @@ public:
         return res;
     }
 };
+
+// Solution 3.
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int n = nums.size();
+        deque<vector<int>>q;
+        vector<int>res(n, -1);
+        for (int i = 0; i < n*2; ++i) {
+            while (!q.empty() && q.back()[0] < nums[i%n]) {
+                auto v = q.back();
+                q.pop_back();
+                res[v[1]] = nums[i%n];
+            }
+            q.push_back({nums[i%n], i%n});
+        }
+        return res;
+    }
+};
