@@ -36,3 +36,36 @@ public:
         return maxRoom;
     }
 };
+
+// Solution 3.
+/**
+ * Definition for an interval.
+ * struct Interval {
+ *     int start;
+ *     int end;
+ *     Interval() : start(0), end(0) {}
+ *     Interval(int s, int e) : start(s), end(e) {}
+ * };
+ */
+class Solution {
+public:
+    int minMeetingRooms(vector<Interval>& intervals) {
+        int res = 0;
+        sort(intervals.begin(), intervals.end(), [](Interval& a, Interval& b) {
+            return a.start < b.start;
+        });
+        auto comp = [](Interval& a, Interval& b) {
+            return a.end > b.end;
+        };
+        priority_queue<Interval, vector<Interval>, decltype(comp)>pq(comp);
+        for (auto& i: intervals) {
+            if (pq.empty() || pq.top().end > i.start) {
+                ++res;
+            } else {
+                pq.pop();
+            }
+            pq.push(i);
+        }
+        return res;
+    }
+};
