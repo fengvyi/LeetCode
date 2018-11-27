@@ -24,3 +24,36 @@ public:
         return true;
     }
 };
+
+// Update 26/11/18
+class Solution {
+public:
+    vector<vector<string>> groupStrings(vector<string>& strings) {
+        vector<vector<string>>res;
+        unordered_map<string, vector<string>>m;
+        for (auto& s: strings) {
+            m[helper(s)].push_back(s);
+        }
+        for (auto& v: m) {
+            res.push_back(v.second);
+        }
+        return res;
+    }
+    
+    string helper(string s) {
+        if (s.size() <= 1) {
+            return "a";
+        }
+        int diff = s[0] - 'a';
+        string res;
+        for (auto c: s) {
+            if (c - diff < 'a') {
+                c = c + (26 - diff);
+            } else {
+                c = c - diff;
+            }
+            res.push_back(c);
+        }
+        return res;
+    }
+};
