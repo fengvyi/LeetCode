@@ -2,38 +2,41 @@
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-       vector<int>res;
-       int candidate1 = 0, candidate2 = 0, count1 = 0, count2 = 0;
-       for(auto n: nums){
-           if(candidate1 == n) 
-               count1++;
-           else if(candidate2 == n)
-               count2++;
-           else if(count1 == 0){
-               candidate1 = n;
-               count1 = 1;
-           }
-           else if(count2 == 0){
-               candidate2 = n;
-               count2 = 1;
-           }
-           else{
-               count1--;
-               count2--;
-           }
-       }
-       count1 = 0;
-       count2 = 0;
-       for(auto n: nums)
-           if(candidate1 == n)
-               count1++;
-           else if(candidate2 == n)
-               count2++;
-       if(count1 > nums.size()/3)
-           res.push_back(candidate1);
-       if(count2 > nums.size()/3)
-           res.push_back(candidate2);
-       return res;
+        int n = nums.size();
+        vector<int>res;
+        int c1 = 0, c2 = 0, count1 = 0, count2 = 0;
+        for (int& x: nums) {
+            if (x == c1) {
+                ++count1;
+            } else if (x == c2) {
+                ++count2;
+            } else if (count1 == 0) {
+                c1 = x;
+                ++count1;
+            } else if (count2 == 0) {
+                c2 = x;
+                ++count2;
+            } else {
+                --count1;
+                --count2;
+            }
+        }
+        count1 = 0;
+        count2 = 0;
+        for (int& x: nums) {
+            if (x == c1) {
+                ++count1;
+            } else if (x == c2) {
+                ++count2;
+            }
+        }
+        if (count1 > n / 3) {
+            res.push_back(c1);
+        }
+        if (count2 > n / 3) {
+            res.push_back(c2);
+        }
+        return res;
     }
 };
 
