@@ -23,3 +23,40 @@ public:
         return a == b;
     }
 };
+
+class Solution {
+public:
+    bool backspaceCompare(string S, string T) {
+        int i = S.size() - 1, j = T.size() - 1, count1 = 0, count2 = 0;
+        while (i >= 0 || j >= 0) {
+            while (i >= 0 && (S[i] == '#' || count1 > 0)) {
+                if (S[i] == '#') {
+                    ++count1;
+                } else {
+                    --count1;
+                }
+                --i;
+            }
+            
+            while (j >= 0 && (T[j] == '#' || count2 > 0)) {
+                if (T[j] == '#') {
+                    ++count2;
+                } else {
+                    --count2;
+                }
+                --j;
+            }
+            
+            if (i < 0 || j < 0) {
+                return i == j;
+            }
+            
+            if (S[i] != T[j]) {
+                return false;
+            }
+            --i;
+            --j;
+        }
+        return true;
+    }
+};
