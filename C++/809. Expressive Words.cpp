@@ -33,3 +33,48 @@ public:
         return res;
     }
 };
+
+class Solution {
+public:
+    int expressiveWords(string S, vector<string>& words) {
+        int res = 0;
+        for (auto& x: words) {
+            if (isValid(x, S)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+    
+    bool isValid(string& x, string& y) {
+        if (x.size() > y.size()) {
+            return false;
+        }
+        
+        int i = 0, j = 0, m = x.size(), n = y.size();
+        while (i < m) {
+            if (x[i] != y[j]) {
+                return false;
+            }
+            
+            int count1 = 1, count2 = 1;
+            while (i + 1 < m && x[i] == x[i + 1]) {
+                ++i;
+                ++count1;
+            }
+            
+            while(j + 1 < n && y[j] == y[j + 1]) {
+                ++j;
+                ++count2;
+            }
+            ++i;
+            ++j;
+            if (count1 == count2 || (count1 < count2 && count2 >= 3)) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return i == m && j == n;
+    }
+};
