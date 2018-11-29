@@ -57,3 +57,44 @@ public:
         return cnt;
     }
 };
+
+
+
+class Solution {
+public:
+    void gameOfLife(vector<vector<int>>& board) {
+        int m = board.size(), n = board[0].size();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int count = getNeighbor(board, i, j);
+                if (count == 3){
+                    board[i][j] |= 2;
+                } else if (count == 2){
+                    int tmp = board[i][j];
+                    board[i][j] <<= 1;
+                    board[i][j] |= tmp;
+                }
+            }
+        }
+        for (auto& v: board) {
+            for (int& x: v) {
+                x >>= 1;
+            }
+        }
+    }
+    
+    int getNeighbor(vector<vector<int>>& board, int r, int c) {
+        int count = 0, m = board.size(), n = board[0].size();
+        for (int i = max(0, r - 1); i <= min(r + 1, m - 1); ++i) {
+            for (int j = max(0, c - 1); j <= min(c + 1, n - 1); ++j) {
+                if (i == r && j == c) {
+                    continue;
+                }
+                if (board[i][j] & 1 == 1) {
+                    ++count;
+                }
+            }
+        }
+        return count;
+    }
+};
