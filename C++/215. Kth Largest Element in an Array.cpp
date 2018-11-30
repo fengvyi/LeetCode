@@ -32,3 +32,35 @@ private:
         return i;
     }
 };
+
+
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int n = nums.size();
+        int pos = partition(nums, n - 1);
+        int target = n - k;
+        if (pos == target) {
+            return nums[pos];
+        } else if (pos < target) {
+            vector<int>r(nums.begin() + pos + 1, nums.end());
+            return findKthLargest(r, k);
+        } else {
+            vector<int>l(nums.begin(), nums.begin() + pos);
+            return findKthLargest(l, k - (n - pos));
+        }
+    }
+    
+     int partition(vector<int>& nums, int end) {
+         int i = 0, j = 0;
+         while (j != end) {
+             if (nums[j] < nums[end]) {
+                 swap(nums[i], nums[j]);
+                 ++i;
+             }
+             ++j;
+         }
+         swap(nums[i], nums[end]);
+         return i;
+     }
+};
