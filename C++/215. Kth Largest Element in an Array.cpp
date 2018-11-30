@@ -64,3 +64,35 @@ public:
          return i;
      }
 };
+
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int n = nums.size();
+        int target = n - k;
+        int l = 0, r = n - 1;
+        while (l <= r) {
+            int p = partition(nums, l, r);
+            if (p == target) {
+                return nums[p];
+            } else if (p < target) {
+                l = p + 1;
+            } else {
+                r = p - 1;
+            }
+        }
+    }
+    
+     int partition(vector<int>& nums, int l, int r) {
+         int i = 0, j = 0;
+         while (j != r) {
+             if (nums[j] <= nums[r]) {
+                 swap(nums[i], nums[j]);
+                 ++i;
+             }
+             ++j;
+         }
+         swap(nums[i], nums[r]);
+         return i;
+     }
+};
