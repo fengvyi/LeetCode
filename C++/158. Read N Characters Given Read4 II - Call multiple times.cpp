@@ -53,3 +53,36 @@ public:
         return sum;
     }
 };
+
+// Forward declaration of the read4 API.
+int read4(char *buf);
+
+class Solution {
+public:
+    /**
+     * @param buf Destination buffer
+     * @param n   Maximum number of characters to read
+     * @return    The number of characters read
+     */
+    int read(char *buf, int n) {
+        int count = 0;
+        while (n) {
+            if (p == cnt) {
+                cnt = read4(tmp);
+                p = 0;
+            }
+            if (cnt == 0) {
+                break;
+            }
+            *buf++ = tmp[p++];
+            ++count;
+            --n;
+        }
+        return count;
+    }
+    
+private:
+    int p = 4;
+    int cnt = 4;
+    char tmp[4];
+};
