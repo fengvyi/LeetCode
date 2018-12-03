@@ -447,4 +447,4 @@ My C++ solutions of [LeetCode Online Judge](https://leetcode.com/problemset/algo
 | 932 | [Beautiful Array](https://leetcode.com/problems/beautiful-array/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/932.%20Beautiful%20Array.cpp) | Medium | Divide and Conquer ||
 | 933 | [Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/933.%20Number%20of%20Recent%20Calls.cpp) | Easy | Queue ||
 | 935 | [Knight Dialer](https://leetcode.com/problems/knight-dialer/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/935.%20Knight%20Dialer.cpp) | Medium | Dynamic Programming | [discuss](https://leetcode.com/problems/knight-dialer/discuss/192515/Super-easy-to-understand-C++-DP-solution) |
-
+| 941 | [Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array/description/) | [C++](https://github.com/fengvyi/LeetCode/blob/master/C%2B%2B/941.%20Valid%20Mountain%20Array.cpp) | Easy | Array ||
