@@ -6,5 +6,6 @@ public:
             if(m.count(target - nums[i])) return {m[target - nums[i]], i};
             m[nums[i]] = i;
         }
+        return {}; /*This returns an empty vector if no valid pair is found*/
     }
 };
